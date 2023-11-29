@@ -1,4 +1,6 @@
-  L=3; %comprimento da primeira seção de resfriamento
+  %objetivo:parametrizar os dois passos em funcao do tempo...
+  
+  L=18; %comprimento da primeira seção de resfriamento
   dx=0.3; %passo ao longo do comprimento
   x=(0:dx:L); %passos em relação ao comprimento
   
@@ -21,13 +23,15 @@
       %calculo da temperatura dos gás e pelotas por runge-kutta, quarta ordem
       k1gas = dy * dtgas(Tpel(i,j-1),Tgas(i-1,j));
       k1pel = dx * dtpel(Tpel(i,j-1),Tgas(i-1,j));
-      k2gas = dy * dtgas(Tpel(i,j-1) + k1/2,Tgas(i-1,j) + k1/2);
-      k2pel = dx * dtpel(Tpel(i,j-1) + k1/2,Tgas(i-1,j) + k1/2);
-      k3gas = dy * dtgas(Tpel(i,j-1) + k2/2,Tgas(i-1,j) + k2/2);
-      k3pel = dx * dtpel(Tpel(i,j-1) + k2/2,Tgas(i-1,j) + k2/2);
-      k4gas = dx * dtgas(Tpel(i,j-1) + k3/2,Tgas(i-1,j) + k3);
-      k4pel = dx * dtpel(Tpel(i,j-1) + k3/2,Tgas(i-1,j) + k3);
+      k2gas = dy * dtgas(Tpel(i,j-1) + k1gas/2,Tgas(i-1,j) + k1gas/2);
+      k2pel = dx * dtpel(Tpel(i,j-1) + k1pel/2,Tgas(i-1,j) + k1pel/2);
+      k3gas = dy * dtgas(Tpel(i,j-1) + k2gas/2,Tgas(i-1,j) + k2gas/2);
+      k3pel = dx * dtpel(Tpel(i,j-1) + k2pel/2,Tgas(i-1,j) + k2pel/2);
+      k4gas = dx * dtgas(Tpel(i,j-1) + k3gas/2,Tgas(i-1,j) + k3gas);
+      k4pel = dx * dtpel(Tpel(i,j-1) + k3pel/2,Tgas(i-1,j) + k3pel);
       Tgas(i,j) = Tgas(i-1,j) + (k1gas + 2*k2gas + 2*k3gas + k4gas)/6;
       Tpel(i,j) = Tpel(i,j-1) + (k1pel + 2*k2pel + 2*k3pel + k4pel)/6;
     endfor
   endfor
+  
+  plot (Tpel(2,:))
