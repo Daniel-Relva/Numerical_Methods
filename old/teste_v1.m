@@ -15,7 +15,7 @@
   y=(0:dy:H)'; %vetor dos passos da altura
   Tpel=zeros(length(y),length(x)); %matriz da temperatura das pelotas
   Tpel(:,1)=1200; %valor inicial das pelotas
-  A=20;
+ 
   Tgas=zeros(length(y),length(x)); %matriz da temperatura do gas
   Tgas(1,:)=15; %valor inicial do gas
   for j = 2:length(x)
