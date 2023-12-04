@@ -1,5 +1,5 @@
 function dtg = dtgas (Tpel,Tgas,Fgas)
-A=20;
+A=420;
 U=0.1*sqrt(Fgas);
 Fgas=1.11;
 Yg=0.26;
