@@ -22,13 +22,16 @@
     for i = 2:length(y)
       %calculo da temperatura dos gás e pelotas por runge-kutta, quarta ordem
       k1gas = dy * dtgas(Tpel(i,j-1),Tgas(i-1,j));
-      k1pel = dx * dtpel(Tpel(i,j-1),Tgas(i-1,j));
       k2gas = dy * dtgas(Tpel(i,j-1) + k1gas/2,Tgas(i-1,j) + k1gas/2);
-      k2pel = dx * dtpel(Tpel(i,j-1) + k1pel/2,Tgas(i-1,j) + k1pel/2);
       k3gas = dy * dtgas(Tpel(i,j-1) + k2gas/2,Tgas(i-1,j) + k2gas/2);
-      k3pel = dx * dtpel(Tpel(i,j-1) + k2pel/2,Tgas(i-1,j) + k2pel/2);
       k4gas = dx * dtgas(Tpel(i,j-1) + k3gas/2,Tgas(i-1,j) + k3gas);
+            
+      k1pel = dx * dtpel(Tpel(i,j-1),Tgas(i-1,j));
+      k2pel = dx * dtpel(Tpel(i,j-1) + k1pel/2,Tgas(i-1,j) + k1pel/2);
+      k3pel = dx * dtpel(Tpel(i,j-1) + k2pel/2,Tgas(i-1,j) + k2pel/2);
       k4pel = dx * dtpel(Tpel(i,j-1) + k3pel/2,Tgas(i-1,j) + k3pel);
+
+      
       Tgas(i,j) = Tgas(i-1,j) + (k1gas + 2*k2gas + 2*k3gas + k4gas)/6;
       Tpel(i,j) = Tpel(i,j-1) + (k1pel + 2*k2pel + 2*k3pel + k4pel)/6;
     endfor

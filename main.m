@@ -42,3 +42,4 @@ Tgas=zeros(length(y),length(x)); %matriz da temperatura do gas
 
 Tgas(1,:)= Tgas_0; %valor inicial do gas
 Tpel(:,1)= Tpel_0; %valor inicial das pelotas
+
