@@ -31,3 +31,14 @@ dy=H/N; %passos em relação a altura
 %+++++++++++++++++++++++++++
 x=(0:dx:L); %passos em relação ao comprimento
 y=(0:dy:H)'; %vetor dos passos da altura
+
+%+++++++++++++++++++++++++++
+% Inicialização das matrizes
+%+++++++++++++++++++++++++++
+Tpel=zeros(length(y),length(x)); %matriz da temperatura das pelotas
+Tgas=zeros(length(y),length(x)); %matriz da temperatura do gas
+
+
+
+Tgas(1,:)= Tgas_0; %valor inicial do gas
+Tpel(:,1)= Tpel_0; %valor inicial das pelotas
