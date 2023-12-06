@@ -1,7 +1,7 @@
   clear;clc
  
   %resolvido: runge kutta, antes estava variando muito porque eu estava
-  % pegando os Ks errados (pelota pra gas etc), agora está tudo na moral
+  % pegando os Ks errados (pelota pra gas etc), agora a perda de temperatura faz sentido
   % mas agora, so o A de 320 que faz algum sentido, com o fluxo constante
   
   L=33; %comprimento da primeira sessao de resfriamento
