@@ -1,6 +1,6 @@
-  clear;clc
+  %essa rotina tem como objetivo construir uma simulacao de um forno de pelotizacao a partir de matrizes relacionadas a temperatura do gas e pelotas
  
-  %variaveis do leito, constroem as matrizes usadas para calcular e guardar os valores da temperatura do gas e pelotas
+  %variaveis do leito, constroem as matrizes usadas para calcular e guardar os valores das temperaturas
   L=33; %comprimento da primeira sessao de resfriamento
   dx=0.3; %passo ao longo do comprimento
   x=(0:dx:L); %passos em relacao ao comprimento
